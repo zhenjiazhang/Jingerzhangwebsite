@@ -1,0 +1,347 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jinger Zhang — Bilingual Multimedia Journalist</title>
+<style>
+  :root{
+    --bg:#0f1720; /* dark charcoal */
+    --panel:#11151a;
+    --muted:#9aa6b2;
+    --accent:#1e60b8; /* deep blue accent */
+    --accent-2:#15529a;
+    --glass: rgba(255,255,255,0.04);
+    --card: #0f1720;
+    --maxw:1100px;
+    --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  html,body{height:100%; margin:0; background:var(--bg); color:#e6eef6; font-family:var(--sans);}
+  .container{max-width:var(--maxw); margin:0 auto; padding:28px;}
+  header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .logo{
+    width:52px;height:52px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:18px;
+  }
+  .title{line-height:1;}
+  .title h1{margin:0;font-size:18px;letter-spacing:0.6px;}
+  .title p{margin:0;color:var(--muted);font-size:13px;}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px;}
+  
+  .hero {
+    margin-top: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    gap: 22px;
+    align-items: center; /* center text vertically with video */
+}
+
+.hero .video {
+    flex: 0 0 480px; /* fixed width for video */
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero .video div {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.hero .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.hero .meta {
+    flex: 1;
+    max-width: 500px; /* narrower text block for better wrapping */
+    padding: 6px 0 6px 0;
+}
+
+.cta .btn {
+    margin-top: 12px;
+}
+
+
+  ..video::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+    pointer-events: none; /* allow clicks to pass through */
+}
+  .play{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    display:flex; align-items:center; gap:12px; background:rgba(0,0,0,0.45); padding:12px 18px; border-radius:999px; backdrop-filter: blur(4px);
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .play .dot{width:0;height:0;border-left:14px solid white;border-top:9px solid transparent;border-bottom:9px solid transparent; display:block;}
+
+  .hero .meta {
+    flex: 1;
+    max-width: 500px; /* makes text block narrower */
+    padding: 6px 0 6px 0;
+}
+
+  .meta h2{margin:0 0 8px 0; font-size:20px;}
+  .meta p{margin:0 0 16px 0; color:var(--muted); line-height:1.4;}
+  .cta{display:flex; gap:10px;}
+  .btn{padding:10px 14px; border-radius:8px; font-weight:600; background:var(--accent); color:white; border:none; cursor:pointer; text-decoration:none;}
+  .btn.secondary{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); font-weight:600;}
+  .section{margin-top:22px;}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .card{background:var(--panel); border-radius:10px; padding:14px; border:1px solid rgba(255,255,255,0.03);}
+  .card .kicker{font-size:12px; color:var(--accent); font-weight:700; margin-bottom:6px; text-transform:uppercase;}
+  .card h3{margin:0 0 8px 0; font-size:16px;}
+  .card p{margin:0; color:var(--muted); font-size:14px;}
+  .two-col{display:grid; grid-template-columns:1fr 320px; gap:20px; margin-top:18px;}
+  .about{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:16px; border-radius:10px;}
+  .beats{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
+  .beat{background:var(--glass); padding:8px 10px; border-radius:8px; color:var(--muted); font-weight:600; font-size:13px;}
+  footer{margin-top:30px; color:var(--muted); font-size:13px; text-align:center; padding-bottom:40px;}
+a,
+  a:visited,
+  a:hover,
+  a:active {color: white; text-decoration: underline;}
+
+  @media(max-width:900px){
+    .grid{grid-template-columns:repeat(1,1fr);}
+    .two-col{grid-template-columns:1fr;}
+    .hero{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <div class="logo">JZ</div>
+      <div class="title">
+        <h1>Jinger Zhang</h1>
+        <p>Bilingual multimedia journalist — Finance & TV reporting</p>
+      </div>
+    </div>
+    <nav>
+  <a href="#writing">Writing</a>
+  <a href="#video">Video</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+  </header>
+
+ <section class="hero" aria-label="Hero — Video-first">
+  <div class="video">
+    <div>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/QwuBQ00d4EU?si=wX8o_Rx0QhAkQBzZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="meta">
+    <h2>Making finance news clear and accessible—on air and online</h2>
+    <p>TV reporter based in New York, covering the U.S. economy, immigration's impact on labor, and market-moving corporate stories. Bilingual in Mandarin and English.</p>
+    <div class="cta">
+  <a class="btn" href="https://www.youtube.com/watch?v=QwuBQ00d4EU" target="_blank">Watch Reel</a>
+</div>
+
+  </div>
+</section>
+
+
+
+  <section id="writing" class="section">
+    <h3 style="margin:0 0 12px 0;">Writing</h3>
+    <div class="grid">
+      <article class="card">
+  <a href="https://coveringcompanies.journalism.cuny.edu/2025/09/30/coinbase-and-cloudflare-launch-x402-foundation-to-develop-ai-payment-ecosystem/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Markets/Crypto</div>
+    <h3>Coinbase and Cloudflare Launch x402 Foundation to Develop AI-Payment Ecosystem</h3>
+  </a>
+</article>
+
+      <article class="card">
+  <a href="https://coveringcompanies.journalism.cuny.edu/2025/09/24/yoga-pants-are-out-essentials-are-in-lululemon-downgraded-amid-consumers-spending-shift/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Markets/Retail</div>
+    <h3>Yoga Pants Are Out, Essentials Are In: Lululemon Downgraded Amid Consumers’ Spending Shift</h3>
+  </a>
+</article>
+
+      <article class="card">
+  <a href="https://dismalscience.journalism.cuny.edu/2025/04/12/u-s-home-prices-hit-record-high-in-january-dividing-homeowner-renter-gap/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Economy</div>
+    <h3>U.S. Home Prices Hit Record High in January, Dividing Homeowner-Renter Gap</h3>
+  </a>
+</article>
+
+
+     <article class="card">
+  <a href="https://dismalscience.journalism.cuny.edu/2025/03/08/u-s-home-prices-continue-growth-in-december-regions-trend-diverge/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Economy</div>
+    <h3>U.S. Home Prices Continue Growth in December, Regions Trend Diverge</h3>
+  </a>
+</article>
+
+     <article class="card">
+  <a href="https://dismalscience.journalism.cuny.edu/2025/05/13/the-workers-missing-from-americas-housing-crisis/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Labor</div>
+    <h3>The Workers Missing From America’s Housing Crisis</h3>
+  </a>
+</article>
+
+
+      <article class="card">
+  <a href="https://www.thexylom.com/post/they-won-t-stop-sucking-workers-blood-new-york-home-care-workers-demand-end-to-24-hour-shifts" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Labor</div>
+    <h3>“They Won’t Stop Sucking Workers’ Blood”: New York Home Care Workers Demand End to 24-Hour Shifts</h3>
+  </a>
+</article>
+
+
+<article class="card">
+  <a href="https://dismalscience.journalism.cuny.edu/2025/03/31/fairfields-local-affordable-housing-battle-reflects-national-struggle/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Housing</div>
+    <h3>Fairfield’s Local Affordable Housing Battle Reflects National Struggle</h3>
+  </a>
+</article>
+
+
+     <article class="card">
+  <a href="https://trash.nycitynewsservice.com/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Community</div>
+    <h3>They Get Paid 5 Cents per Can. But the City Could Lock Away Their Revenue</h3>
+  </a>
+</article>
+
+      <article class="card">
+  <a href="https://www.nycitynewsservice.com/2025/01/10/for-many-williamsburg-residents-doing-laundry-is-becoming-a-luxury/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Community</div>
+    <h3>For Many Williamsburg Residents, Doing Laundry Is Becoming a Luxury</h3>
+  </a>
+</article>
+
+
+       <article class="card">
+  <a href="https://mp.weixin.qq.com/s/QsQN-gqXtWET_RjxN9fi3g" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">中文报道</div>
+    <h3>吃土也要买，抽盲盒凭什么让年轻人如此上头？</h3>
+  </a>
+</article>
+
+<article class="card">
+  <a href="https://mp.weixin.qq.com/s/-gP8MNGqIj_3IVgy0WWwrQ" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">中文报道</div>
+    <h3>怎么做，可以在35岁前退休？</h3>
+  </a>
+</article>
+
+       <article class="card">
+  <a href="https://mp.weixin.qq.com/s/Y_LwHPN4-ythJmuUeAynog" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">中文报道</div>
+    <h3>办卡的冲动，靠“冷静期”抑制靠谱吗？</h3>
+  </a>
+</article>
+
+
+    </div>
+  </section>
+
+
+  <section id="video" class="section two-col" aria-label="Main and sidebar">
+    <main>
+      <h3 style="margin-top:0;">Video Packages</h3>
+      <div style="display:grid; gap: 14px;px;">
+       
+        <div class="card">
+  <a href="https://www.nycitynewsservice.com/2025/05/09/how-the-u-s-china-tariff-war-could-impact-your-next-haircut/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Economy</div>
+    <h3>How the U.S.-China Tariff War Could Impact Your Next Haircut</h3>
+  </a>
+</div>
+
+
+        <div class="card">
+  <a href="https://www.nycitynewsservice.com/2025/05/20/funding-cuts-force-unaccompanied-children-to-appear-alone-in-court/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Immigration & Labor</div>
+    <h3>Funding Cuts Force Unaccompanied Children to Appear Alone in Court</h3>
+  </a>
+</div>
+
+        <div class="card">
+  <a href="https://www.nycitynewsservice.com/2025/10/02/with-lirr-strike-on-hold-long-island-commuters-stay-on-track/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Immigration & Labor</div>
+    <h3>With LIRR Strike on Hold, Long Island Commuters Stay on Track</h3>
+  </a>
+</div>
+
+
+      <div class="card">
+  <a href="https://www.instagram.com/reel/DL-50DeTg5i/?igsh=MWZ0MmYydWN4Yzl4Mg%3D%3D" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Immigration & Labor</div>
+    <h3>They Won’t Stop Sucking Workers’ Blood”: New York Home Care Workers Demand End to 24-Hour Shifts</h3>
+  </a>
+</div>
+
+         <div class="card">
+  <a href="https://www.nycitynewsservice.com/2024/12/12/roosevelt-island-residents-are-asking-for-tram-priority-boarding-rights/" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Local Community</div>
+    <h3>Roosevelt Island Residents are Asking for Tram Priority Boarding Rights</h3>
+  </a>
+</div>
+
+
+         <div class="card">
+  <a href="https://www.youtube.com/watch?v=qzCtEIyfh44" target="_blank" style="display:block; text-decoration:none; color:inherit;">
+    <div class="kicker">Feature</div>
+    <h3>Feature: Manhattan Real Estate Broker</h3>
+  </a>
+</div>
+
+      </div>
+    </main>
+
+   <aside id="about" class="about">
+  <h4 style="margin:0 0 8px 0;">About</h4>
+  <p style="margin:0 0 8px 0; color:var(--muted);">
+    Jinger Zhang is a multimedia bilingual business journalist from China based in New York. She is currently reporting on cryptocurrency and financial markets, striving to deliver complex financial information to a global audience in clear, accessible language.
+    <br><br>
+    She also has experience filming, editing, and directing documentaries. She tells social and economic stories through video, focusing on how immigration and economic policies impact working-class communities.
+    <br><br>
+    She is president of the Newmark School’s Asian American Journalists Association chapter and received the <a href="https://www.deadlineclub.org/awards/" target="_blank">2025 Deadline Club Scholarship</a> from the New York chapter of the Society of Professional Journalists.
+  </p>
+
+  <!-- Resume Link -->
+  <a href="https://static1.squarespace.com/static/6721c3733b2059148f64b8e6/t/68e48c81fe6e0434dfa3ab08/1759808641746/Resume_Jinger+Zhang.pdf" target="_blank" style="display:inline-block; margin:10px 0; padding:6px 12px; background:var(--accent); color:white; border-radius:6px; text-decoration:none; font-weight:600;">Resume</a>
+
+  <br>
+  <div class="beat">U.S. Economy & Labor</div>
+  <div class="beat">Immigration & Workforce</div>
+  <div class="beat">Corporate & Markets</div>
+</aside>
+
+  </section>
+
+
+<footer id="contact">
+  <div style="max-width:640px; margin:18px auto 0 auto; color:var(--muted); display:flex; align-items:center; gap:12px; justify-content:center;">
+    © Jinger Zhang · New York · 
+    <a href="#" style="color:var(--muted); text-decoration:underline;">Contact</a> ·
+    <a href="https://www.linkedin.com/in/jinger-zhang-3aa117307/" target="_blank" style="color:var(--muted); text-decoration:underline;">LinkedIn</a> ·
+    <a href="https://www.instagram.com/jingerale_reports/" target="_blank" style="color:var(--muted); text-decoration:underline;">Instagram</a>
+  </div>
+</footer>
+
+
+
+</div>
+</body>
+</html>
